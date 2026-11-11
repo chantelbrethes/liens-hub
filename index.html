@@ -25,7 +25,11 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--cream);
+      background-image: url('zome-automne.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-color: var(--cream);
       color: var(--brown-deep);
       line-height: 1.6;
       min-height: 100vh;
@@ -33,20 +37,14 @@
       overflow-x: hidden;
     }
 
-    /* Étoiles dorées en arrière-plan */
+    /* Voile crème tamisé — pour que la photo se voie mais que le texte reste lisible */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
-      background-image:
-        radial-gradient(1px 1px at 20% 30%, var(--gold-soft), transparent),
-        radial-gradient(1px 1px at 80% 10%, var(--gold-soft), transparent),
-        radial-gradient(1px 1px at 60% 60%, var(--gold-soft), transparent),
-        radial-gradient(1px 1px at 30% 80%, var(--gold-soft), transparent),
-        radial-gradient(1px 1px at 90% 70%, var(--gold-soft), transparent),
-        radial-gradient(1px 1px at 10% 50%, var(--gold-soft), transparent),
-        radial-gradient(1px 1px at 70% 40%, var(--gold-soft), transparent);
-      opacity: 0.4;
+      background: rgba(245, 241, 232, 0.72);
+      backdrop-filter: blur(1px);
+      -webkit-backdrop-filter: blur(1px);
       pointer-events: none;
       z-index: 0;
     }
@@ -71,6 +69,7 @@
       color: var(--brown-deep);
       letter-spacing: 0.02em;
       margin-bottom: 20px;
+      text-shadow: 0 1px 2px rgba(245, 241, 232, 0.8);
     }
 
     .baseline {
@@ -78,16 +77,18 @@
       font-size: clamp(1.1rem, 2.5vw, 1.35rem);
       font-style: italic;
       color: var(--green-deep);
-      font-weight: 400;
+      font-weight: 500;
       margin-bottom: 8px;
+      text-shadow: 0 1px 2px rgba(245, 241, 232, 0.8);
     }
 
     .tagline {
       font-size: 0.95rem;
       color: var(--brown-soft);
-      font-weight: 300;
+      font-weight: 400;
       letter-spacing: 0.08em;
       text-transform: uppercase;
+      text-shadow: 0 1px 2px rgba(245, 241, 232, 0.8);
     }
 
     .divider {
@@ -100,10 +101,11 @@
     .message {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.1rem;
-      color: var(--brown-soft);
+      color: var(--brown-deep);
       font-style: italic;
       margin-bottom: 50px;
       line-height: 1.8;
+      text-shadow: 0 1px 2px rgba(245, 241, 232, 0.8);
     }
 
     .buttons {
@@ -120,17 +122,19 @@
       justify-content: center;
       gap: 12px;
       padding: 16px 24px;
-      background: transparent;
+      background: rgba(245, 241, 232, 0.6);
       border: 1px solid var(--brown-deep);
       color: var(--brown-deep);
       text-decoration: none;
       font-family: 'Inter', sans-serif;
       font-size: 0.95rem;
-      font-weight: 400;
+      font-weight: 500;
       letter-spacing: 0.05em;
       transition: all 0.3s ease;
       cursor: pointer;
       border-radius: 2px;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
     }
 
     .btn:hover {
@@ -150,7 +154,7 @@
     }
 
     .btn.disabled {
-      opacity: 0.4;
+      opacity: 0.55;
       cursor: not-allowed;
       position: relative;
     }
@@ -170,7 +174,7 @@
     }
 
     .btn.disabled:hover {
-      background: transparent;
+      background: rgba(245, 241, 232, 0.6);
       color: var(--brown-deep);
       transform: none;
     }
@@ -178,14 +182,14 @@
     footer {
       margin-top: 60px;
       padding-top: 40px;
-      border-top: 1px solid var(--cream-dark);
+      border-top: 1px solid rgba(92, 64, 51, 0.25);
       font-size: 0.9rem;
-      color: var(--brown-soft);
+      color: var(--brown-deep);
       line-height: 2;
     }
 
     footer a {
-      color: var(--brown-soft);
+      color: var(--brown-deep);
       text-decoration: none;
       transition: color 0.2s;
     }
@@ -196,18 +200,21 @@
 
     .footer-line {
       margin-bottom: 8px;
+      text-shadow: 0 1px 2px rgba(245, 241, 232, 0.8);
     }
 
     .footer-mentions {
       font-size: 0.75rem;
       color: var(--brown-soft);
-      opacity: 0.7;
+      opacity: 0.85;
       margin-top: 24px;
+      text-shadow: 0 1px 2px rgba(245, 241, 232, 0.8);
     }
 
     @media (max-width: 500px) {
       .container { padding: 40px 20px; }
       .buttons { max-width: 100%; }
+      body { background-attachment: scroll; } /* fixed cassé sur iOS */
     }
   </style>
 </head>
